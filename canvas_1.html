@@ -1,0 +1,27 @@
+<html>
+
+<head>
+  <style>
+    #my_canvas {
+      background-color: gray;
+    }
+  </style>
+</head>
+
+
+<body>
+  <canvas id="my_canvas" width="500" height="500"></canvas>
+</body>
+
+<script>
+  const my_canvas = document.getElementById('my_canvas')
+  const ctx = my_canvas.getContext('2d');
+  ctx.fillStyle = "pink";
+  ctx.fillRect(100, 100, 100, 100);
+  ctx.fillStyle = "#ff5733";
+  ctx.fillRect(180, 180, 100, 100);
+  ctx.fillStyle = "rgba(32,23,45,0.8)";
+  ctx.fillRect(260, 260, 100, 100);
+</script>
+
+</html>
