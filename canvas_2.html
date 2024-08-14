@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <style>
+    #my_canvas {
+      background-color: gray;
+    }
+  </style>
+</head>
+
+
+<body>
+  <canvas id="my_canvas" width="500" height="500"></canvas>
+</body>
+
+<script>
+  const my_canvas = document.getElementById('my_canvas')
+  const ctx = my_canvas.getContext('2d');
+  ctx.fillStyle = "pink";
+  ctx.strokeStyle = "pink";
+  ctx.lineWidth = 4;
+  ctx.strokeRect(20, 20, 100, 100);
+  ctx.fillStyle = "#ff5733";
+  ctx.fillRect(180, 180, 100, 100);
+  ctx.fillStyle = "rgba(32,23,45,0.8)";
+  ctx.fillRect(220, 220, 100, 100);
+  ctx.beginPath();
+  const anchor_x = 300;
+  const anchor_y = 75;
+  ctx.moveTo(anchor_x, anchor_y);
+  ctx.lineTo(anchor_x - 65, anchor_y + 50);
+  ctx.lineTo(anchor_x + 35, anchor_y + 50);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+</script>
+
+</html>
