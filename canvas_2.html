@@ -76,6 +76,13 @@
   grd.addColorStop(0.8, "white");
   ctx.fillStyle = grd;
   ctx.fillRect(250, 300, 500, 100);
+
+  const gradient = ctx.createRadialGradient(120, 400, 30, 120, 400, 70);
+  gradient.addColorStop(0, "orange");
+  gradient.addColorStop(0.5, "yellow");
+  gradient.addColorStop(1, "blue");
+  ctx.fillStyle = gradient;
+  ctx.fillRect(25, 300, 200, 200);
 </script>
 
 </html>
