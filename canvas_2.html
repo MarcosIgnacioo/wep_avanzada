@@ -67,6 +67,15 @@
   ctx.beginPath();
   ctx.arc(700, 305, 20, 0 * Math.PI, 1 * Math.PI);
   ctx.stroke();
+
+  // gradient
+  const grd = ctx.createLinearGradient(200, 300, 700, 0);
+  grd.addColorStop(0, "orange");
+  grd.addColorStop(0.3, "red");
+  grd.addColorStop(0.5, "blue");
+  grd.addColorStop(0.8, "white");
+  ctx.fillStyle = grd;
+  ctx.fillRect(250, 300, 500, 100);
 </script>
 
 </html>
