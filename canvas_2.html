@@ -83,6 +83,14 @@
   gradient.addColorStop(1, "blue");
   ctx.fillStyle = gradient;
   ctx.fillRect(25, 300, 200, 200);
+
+  let img = new Image()
+  img.src = "miesposo.jpg"
+
+  img.onload = function () {
+    ctx.drawImage(img, 10, 10);
+  }
+
 </script>
 
 </html>
