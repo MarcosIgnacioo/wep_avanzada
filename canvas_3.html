@@ -20,13 +20,16 @@
 <script>
   const my_canvas = document.getElementById('my_canvas')
   const ctx = my_canvas.getContext('2d');
+  ctx.strokeStyle = 'white';
   my_canvas.addEventListener('click', (e) => {
-    ctx.fillStyle = getRandomColor();
-    ctx.strokeStyle = 'white';
     ctx.beginPath();
     ctx.arc(e.clientX, e.clientY, 80, 0 * Math.PI, 2 * Math.PI);
     ctx.fill();
     ctx.stroke();
+  })
+
+  my_canvas.addEventListener('mouseover', (e) => {
+    ctx.fillStyle = getRandomColor();
   })
   function getRandomColor() {
     var trans = '0.5'; // 50% transparency
