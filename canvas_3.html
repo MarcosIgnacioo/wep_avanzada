@@ -5,11 +5,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
+  <style>
+    #my_canvas {
+      background-color: white;
+      border: 5px red solid;
+    }
+  </style>
 </head>
 
 <body>
-  <canvas id="canvas">
+  <canvas id="my_canvas" width="800" height="500">
   </canvas>
 </body>
+<script>
+  const my_canvas = document.getElementById('my_canvas')
+  const ctx = my_canvas.getContext('2d');
+  my_canvas.addEventListener('click', (e) => {
+    ctx.fillStyle = getRandomColor();
+    ctx.strokeStyle = 'white';
+    ctx.beginPath();
+    ctx.arc(e.clientX, e.clientY, 80, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.stroke();
+  })
+  function getRandomColor() {
+    var trans = '0.5'; // 50% transparency
+    var color = 'rgba(';
+    for (var i = 0; i < 3; i++) {
+      color += Math.floor(Math.random() * 255) + ',';
+    }
+    color += trans + ')'; // add the transparency
+    return color;
+  }
+</script>
 
 </html>
