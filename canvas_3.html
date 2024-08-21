@@ -37,6 +37,13 @@
     ctx.fillStyle = getRandomColor();
   })
 
+  my_canvas.addEventListener('mousemove', (e) => {
+    ctx.strokeStyle = 'white';
+    ctx.beginPath();
+    ctx.arc(e.clientX, e.clientY, 2, 0 * Math.PI, 2 * Math.PI);
+    ctx.stroke();
+  })
+
   my_canvas.addEventListener('mouseout', (e) => {
     flag = !flag;
   })
