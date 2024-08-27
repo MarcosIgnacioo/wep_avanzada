@@ -31,8 +31,8 @@
   ctx.strokeStyle = 'white';
 
   document.addEventListener("keydown", (e) => {
-    // ctx.fillStyle = 'white';
-    // ctx.fillRect(0, 0, width, height);
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, width, height);
     ctx.fillStyle = getRandomColor();
     ctx.strokeStyle = "black";
     switch (e.key) {
