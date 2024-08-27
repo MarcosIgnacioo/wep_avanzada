@@ -26,13 +26,33 @@
   const rectWidth = 100;
   const rectHeight = 100;
   let drawMousePath = false;
+  let x = 0;
+  let y = 0;
   ctx.strokeStyle = 'white';
 
   document.addEventListener("keydown", (e) => {
-    let x = Math.floor(Math.random() * width);
-    let y = Math.floor(Math.random() * height);
+    // ctx.fillStyle = 'white';
+    // ctx.fillRect(0, 0, width, height);
     ctx.fillStyle = getRandomColor();
     ctx.strokeStyle = "black";
+    switch (e.key) {
+      case 'w':
+        y -= 10;
+        break;
+      case 's':
+        y += 10;
+        break;
+
+      case 'a':
+        x -= 10;
+        break;
+      default:
+
+      case 'd':
+        x += 10;
+        break;
+        break;
+    }
     ctx.fillRect(x, y, rectWidth, rectHeight);
     ctx.strokeText(e.key, x + rectWidth / 2, y + rectHeight / 2);
   });
