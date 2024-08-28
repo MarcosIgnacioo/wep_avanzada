@@ -13,6 +13,7 @@ let speed = 10;
 ctx.strokeStyle = 'white';
 
 document.addEventListener("keydown", (e) => {
+  console.log(e.key);
   switch (e.key) {
     case 'w':
       direction = "up"
@@ -25,6 +26,9 @@ document.addEventListener("keydown", (e) => {
       break;
     case 'd':
       direction = "right"
+      break;
+    case ' ':
+      speed *= 2;
       break;
   }
 });
