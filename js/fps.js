@@ -74,6 +74,7 @@ function paint() {
 }
 
 requestAnimationFrame(paint);
+
 function getRandomColor() {
   var trans = '0.5'; // 50% transparency
   var color = 'rgba(';
