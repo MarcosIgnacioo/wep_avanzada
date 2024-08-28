@@ -33,18 +33,28 @@ function update() {
   switch (direction) {
     case 'up':
       y -= speed;
+      if (y + 50 <= 0) {
+        y = 630
+      }
       break;
     case 'down':
       y += speed;
+      if (y - 50 >= height) {
+        y = -10;
+      }
       break;
 
     case 'left':
       x -= speed;
+      if (x + 50 <= 0) {
+        x = 830;
+      }
       break;
-    default:
-
     case 'right':
       x += speed;
+      if (x + 50 >= width) {
+        x = -40;
+      }
       break;
   }
 }
