@@ -55,6 +55,7 @@ function update() {
       }
       break;
     case 'right':
+      console.log("wep")
       x += speed;
       if (x + 50 >= width) {
         x = -40;
