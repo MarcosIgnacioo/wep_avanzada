@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <canvas
+      style="border: black solid 1px;"
+      id="my_canvas"
+      width="720"
+      height="720"
+    >
+    </canvas>
+    <div id="color-picker-container">
+      <label for="">color</label>
+      <input id="color-picker" type="text" name="" value="" />
+      <select id="tool-selector">
+        <option value="line">line</option>
+        <option value="circle">circle</option>
+        <option value="rect">rect</option>
+        <option value="brush">bruuhsh</option>
+      </select>
+    </div>
+    <canvas style="" id="color-canvas"></canvas>
+
+    <div id="output"></div>
+  </body>
+  <script src="./js/generator.js"></script>
+</html>

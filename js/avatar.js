@@ -23,12 +23,12 @@ let originY = 280;
 
 ctx.fillStyle = '#f6f0ce';
 ctx.beginPath();
-ctx.arc(originX-90, originY + 120, 40, 0 * Math.PI, 2 * Math.PI);
+ctx.arc(originX - 90, originY + 120, 40, 0 * Math.PI, 2 * Math.PI);
 ctx.fill();
 
 ctx.fillStyle = '#f9c5db';
 ctx.beginPath();
-ctx.arc(originX+100, originY + 120, 40, 0 * Math.PI, 2 * Math.PI);
+ctx.arc(originX + 100, originY + 120, 40, 0 * Math.PI, 2 * Math.PI);
 ctx.fill();
 
 ctx.strokeStyle = '#141212';
@@ -41,12 +41,12 @@ ctx.stroke();
 
 ctx.fillStyle = '#f6f0ce';
 ctx.beginPath();
-ctx.arc(originX-150, originY , 40, 0 * Math.PI, 2 * Math.PI);
+ctx.arc(originX - 150, originY, 40, 0 * Math.PI, 2 * Math.PI);
 ctx.fill();
 
 ctx.fillStyle = '#f9c5db';
 ctx.beginPath();
-ctx.arc(originX+150, originY , 40, 0 * Math.PI, 2 * Math.PI);
+ctx.arc(originX + 150, originY, 40, 0 * Math.PI, 2 * Math.PI);
 ctx.fill();
 
 ctx.fillStyle = '#f6f0ce';

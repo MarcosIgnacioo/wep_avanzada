@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <canvas id="my_canvas" width="610" height="800"></canvas>
+  </body>
+  <script>
+    const my_canvas = document.getElementById("my_canvas");
+    const ctx = my_canvas.getContext("2d");
+    ctx.fillStyle = "rgba(255,111,0,1)";
+    ctx.fillRect(17, 431, 701, 279);
+
+    ctx.fillStyle = "rgba(305,161,50,51)";
+    const squareWidth = 30;
+    for (let i = 0; i < 701 / squareWidth - 1; i++) {
+      for (let j = 0; j < 279 / squareWidth - 1; j++) {
+        const xd = j % 2 == 0 ? 1 : 0;
+        if ((i + xd) % 2 == 0) {
+          ctx.fillRect(
+            17 + squareWidth * i,
+            431 + squareWidth * j,
+            squareWidth,
+            squareWidth,
+          );
+        }
+      }
+    }
+
+    ctx.fillStyle = "rgba(45,159,81,1)";
+    ctx.fillRect(716, 479, 0, 0);
+
+    ctx.fillStyle = "rgba(244,120,24,0.6)";
+    ctx.fillRect(9, 434, 226, 61);
+
+    ctx.fillStyle = "rgba(45,159,81,1)";
+    ctx.fillRect(1, 386, 719, 96);
+
+    ctx.fillStyle = "rgba(244,120,24,0.6)";
+    ctx.fillRect(2, 431, 714, 78);
+
+    ctx.fillStyle = "rgba(28,26,216,0.965)";
+    ctx.fillRect(719, 386, 0, 0);
+
+    ctx.fillStyle = "rgba(45,62,162,0.965)";
+    ctx.fillRect(3, 8, 715, 395);
+
+    ctx.fillStyle = "rgba(180,114,19,0.965)";
+    ctx.fillRect(378, 266, 21, 137);
+
+    ctx.fillStyle = "rgba(90,206,64,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(340, 217, 77.10382610480494, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(90,206,64,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(412, 215, 81.46778504415104, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(90,206,64,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(366, 128, 51.73973328110612, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(90,206,64,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(450, 143, 58.05170109479997, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(90,206,64,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(490, 221, 35, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(90,206,64,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(263, 185, 56.22277118748239, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(90,206,64,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(308, 175, 31.89043743820395, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(90,206,64,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(311, 135, 60.41522986797286, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(45,62,162,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(210, 126, 106.3296760081587, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(45,62,162,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(371, 112, 82.85529554590944, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(45,62,162,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(485, 134, 76.40026177965623, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(45,62,162,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(363, 192, 24.758836806279895, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(64,108,32,0.965)";
+    ctx.fillRect(589, 323, 20, 80);
+
+    ctx.fillStyle = "rgba(223,210,80,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(572, 314, 22.135943621178654, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(223,210,80,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(614, 315, 21.213203435596427, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(223,210,80,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(634, 286, 19.209372712298546, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(223,210,80,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(604, 259, 22.67156809750927, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(223,210,80,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(578, 276, 22.847319317591726, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(141,70,15,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(590, 287, 22.20360331117452, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(238,224,35,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(73, 273, 46.04345773288535, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(238,224,35,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(199, 280, 45.45327270945405, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(45,62,162,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(195, 280, 37.73592452822641, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(45,62,162,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(72, 271, 38.600518131237564, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(84,223,73,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(34, 86, 68.0294054067798, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(84,223,73,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(31, 158, 55.94640292279746, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(84,223,73,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(109, 46, 110.13627921806692, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(45,62,162,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(31, 31, 69.31810730249349, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(45,62,162,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(132, 45, 71.5122367151245, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(45,62,162,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(204, 55, 64.89992295835181, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(45,62,162,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(159, 90, 39.395431207184416, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(45,62,162,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(188, 90, 56.089214649520635, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(45,62,162,0.965)";
+    ctx.strokeStyle = "";
+    ctx.beginPath();
+    ctx.arc(166, 101, 41.773197148410844, 0 * Math.PI, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+  </script>
+</html>
