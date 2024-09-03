@@ -1,5 +1,44 @@
+class Entity {
+  x;
+  y;
+  width;
+  height;
+  speed;
+  color;
+
+  constructor(x, y, speed, width, height, color) {
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
+    this.width = width;
+    this.height = height;
+    this.color = color;
+  }
+
+  draw(ctx) {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.fillStyle = this.color;
+    ctx.strokeStyle = "black";
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+  }
+
+  collides(target) {
+    return (
+      (this.x + this.width > target.x && this.x < target.x + target.width)
+      &&
+      this.y + this.height > target.y && this.y < target.y + target.height
+    )
+  }
+}
+
+
 const my_canvas = document.getElementById('my_canvas')
 const ctx = my_canvas.getContext('2d');
+
+const player = new Entity(0, 0, 2, 20, 20, "blue")
+const foo = new Entity(150, 150, 5, 200, 200, "red")
+
 let flag = true;
 const width = 800;
 const height = 500;
@@ -36,29 +75,28 @@ document.addEventListener("keydown", (e) => {
 function update() {
   switch (direction) {
     case 'up':
-      y -= speed;
-      if (y + 50 <= 0) {
-        y = 630
+      player.y -= player.speed;
+      if (player.y + 50 <= 0) {
+        player.y = 630
       }
       break;
     case 'down':
-      y += speed;
-      if (y - 50 >= height) {
-        y = -10;
+      player.y += player.speed;
+      if (player.y - 50 >= height) {
+        player.y = -10;
       }
       break;
 
     case 'left':
-      x -= speed;
-      if (x + 50 <= 0) {
-        x = 830;
+      player.x -= player.speed;
+      if (player.x + 50 <= 0) {
+        player.x = 830;
       }
       break;
     case 'right':
-      console.log("wep")
-      x += speed;
-      if (x + 50 >= width) {
-        x = -40;
+      player.x += player.speed;
+      if (player.x + 50 >= width) {
+        player.x = -40;
       }
       break;
   }
@@ -66,11 +104,17 @@ function update() {
 
 function paint() {
   update();
-  ctx.fillStyle = 'white';
+  ctx.fillStyle = 'black';
   ctx.fillRect(0, 0, width, height);
-  ctx.fillStyle = getRandomColor();
-  ctx.strokeStyle = "black";
-  ctx.fillRect(x, y, rectWidth, rectHeight);
+  player.draw(ctx);
+  if (player.collides(foo)) {
+    foo.x = Math.random() * width / 2
+    foo.y = Math.random() * height / 2
+  }
+  foo.draw(ctx)
+  // ctx.fillStyle = getRandomColor();
+  // ctx.strokeStyle = "black";
+  // ctx.fillRect(x, y, rectWidth, rectHeight);
   requestAnimationFrame(paint);
 }
 
@@ -83,5 +127,5 @@ function getRandomColor() {
     color += Math.floor(Math.random() * 255) + ',';
   }
   color += trans + ')'; // add the transparency
-  return color;
+  return 'blue';
 }
