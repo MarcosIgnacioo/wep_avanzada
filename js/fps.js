@@ -38,6 +38,15 @@ const ctx = my_canvas.getContext('2d');
 
 const player = new Entity(0, 0, 2, 20, 20, "blue")
 const foo = new Entity(150, 150, 5, 200, 200, "red")
+const puffle = new Entity(150, 350, 5, 20, 20, "pink")
+let score = 0;
+
+const directionMasking = {
+  "up": "down",
+  "down": "up",
+  "left": "right",
+  "right": "left",
+}
 
 let flag = true;
 const width = 800;
@@ -106,12 +115,33 @@ function paint() {
   update();
   ctx.fillStyle = 'black';
   ctx.fillRect(0, 0, width, height);
-  player.draw(ctx);
   if (player.collides(foo)) {
-    foo.x = Math.random() * width / 2
-    foo.y = Math.random() * height / 2
+    switch (direction) {
+      case "up":
+        player.y += player.speed;
+        break;
+      case "down":
+        player.y -= player.speed;
+        break;
+      case "left":
+        player.x += player.speed;
+        break;
+      case "right":
+        player.x -= player.speed;
+        break;
+    }
   }
+  if (player.collides(puffle)) {
+    puffle.x = Math.random() * width - puffle.width
+    puffle.y = Math.random() * height - puffle.height
+    score += 10;
+  }
+  puffle.draw(ctx)
+  player.draw(ctx);
   foo.draw(ctx)
+  ctx.strokeStyle = "pink";
+  ctx.font = "italic 50px serif";
+  ctx.fillText(`score ${score}`, 505, 95);
   // ctx.fillStyle = getRandomColor();
   // ctx.strokeStyle = "black";
   // ctx.fillRect(x, y, rectWidth, rectHeight);
