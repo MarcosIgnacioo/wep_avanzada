@@ -109,12 +109,7 @@ function update() {
       }
       break;
   }
-}
 
-function paint() {
-  update();
-  ctx.fillStyle = 'black';
-  ctx.fillRect(0, 0, width, height);
   if (player.collides(foo)) {
     switch (direction) {
       case "up":
@@ -136,6 +131,12 @@ function paint() {
     puffle.y = Math.random() * height - puffle.height
     score += 10;
   }
+}
+
+function paint() {
+  update();
+  ctx.fillStyle = 'black';
+  ctx.fillRect(0, 0, width, height);
   puffle.draw(ctx)
   player.draw(ctx);
   foo.draw(ctx)
