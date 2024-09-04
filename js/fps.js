@@ -37,6 +37,11 @@ const my_canvas = document.getElementById('my_canvas')
 const ctx = my_canvas.getContext('2d');
 
 const player = new Entity(0, 0, 2, 20, 20, "blue")
+const walls = []
+
+walls.push(new Entity(150, 0, 5, 200, 30, "red"))
+walls.push(new Entity(150, 300, 5, 200, 30, "red"))
+
 const foo = new Entity(150, 150, 5, 200, 200, "red")
 const puffle = new Entity(150, 350, 5, 20, 20, "pink")
 let score = 0;
@@ -110,26 +115,31 @@ function update() {
       break;
   }
 
-  if (player.collides(foo)) {
-    switch (direction) {
-      case "up":
-        player.y += player.speed;
-        break;
-      case "down":
-        player.y -= player.speed;
-        break;
-      case "left":
-        player.x += player.speed;
-        break;
-      case "right":
-        player.x -= player.speed;
-        break;
+
+  walls.forEach(wall => {
+    if (player.collides(wall)) {
+      switch (direction) {
+        case "up":
+          player.y += player.speed;
+          break;
+        case "down":
+          player.y -= player.speed;
+          break;
+        case "left":
+          player.x += player.speed;
+          break;
+        case "right":
+          player.x -= player.speed;
+          break;
+      }
     }
-  }
+  });
+
   if (player.collides(puffle)) {
     puffle.x = Math.random() * width - puffle.width
     puffle.y = Math.random() * height - puffle.height
     score += 10;
+    player.speed += 1;
   }
 }
 
@@ -139,13 +149,12 @@ function paint() {
   ctx.fillRect(0, 0, width, height);
   puffle.draw(ctx)
   player.draw(ctx);
-  foo.draw(ctx)
+  walls.forEach(wall => {
+    wall.draw(ctx)
+  });
   ctx.strokeStyle = "pink";
   ctx.font = "italic 50px serif";
   ctx.fillText(`score ${score}`, 505, 95);
-  // ctx.fillStyle = getRandomColor();
-  // ctx.strokeStyle = "black";
-  // ctx.fillRect(x, y, rectWidth, rectHeight);
   requestAnimationFrame(paint);
 }
 
