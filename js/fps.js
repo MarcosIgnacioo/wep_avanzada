@@ -36,6 +36,9 @@ class Entity {
 const my_canvas = document.getElementById('my_canvas')
 const ctx = my_canvas.getContext('2d');
 
+let img = new Image()
+img.src = "miesposo.jpg"
+
 const player = new Entity(0, 0, 2, 20, 20, "blue")
 const walls = []
 
@@ -144,6 +147,11 @@ function update() {
 }
 
 function paint() {
+
+  img.onload = function() {
+    ctx.drawImage(img, 10, 10);
+  }
+
   if (!pause) {
     update();
   }
@@ -163,7 +171,11 @@ function paint() {
     ctx.fillStyle = 'rgba(255,255,255,0.5)';
     ctx.fillRect(0, 0, width, height);
     ctx.font = "italic 50px serif";
-    ctx.fillText(`P A U S E`, width / 2 -200, height / 2);
+    ctx.fillText(`P A U S E`, width / 2 - 200, height / 2);
+  }
+
+  img.onload = function() {
+    ctx.drawImage(img, 100, 100);
   }
 
   requestAnimationFrame(paint);
