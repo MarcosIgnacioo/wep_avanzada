@@ -45,6 +45,7 @@ walls.push(new Entity(150, 300, 5, 200, 30, "red"))
 const foo = new Entity(150, 150, 5, 200, 200, "red")
 const puffle = new Entity(150, 350, 5, 20, 20, "pink")
 let score = 0;
+let pause = false;
 
 const directionMasking = {
   "up": "down",
@@ -66,7 +67,6 @@ let speed = 10;
 ctx.strokeStyle = 'white';
 
 document.addEventListener("keydown", (e) => {
-  console.log(e.key);
   switch (e.key) {
     case 'w':
       direction = "up"
@@ -81,7 +81,7 @@ document.addEventListener("keydown", (e) => {
       direction = "right"
       break;
     case ' ':
-      speed *= 2;
+      pause = !pause;
       break;
   }
 });
@@ -144,7 +144,9 @@ function update() {
 }
 
 function paint() {
-  update();
+  if (!pause) {
+    update();
+  }
   ctx.fillStyle = 'black';
   ctx.fillRect(0, 0, width, height);
   puffle.draw(ctx)
@@ -152,9 +154,18 @@ function paint() {
   walls.forEach(wall => {
     wall.draw(ctx)
   });
+
   ctx.strokeStyle = "pink";
   ctx.font = "italic 50px serif";
   ctx.fillText(`score ${score}`, 505, 95);
+
+  if (pause) {
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.fillRect(0, 0, width, height);
+    ctx.font = "italic 50px serif";
+    ctx.fillText(`P A U S E`, width / 2 -200, height / 2);
+  }
+
   requestAnimationFrame(paint);
 }
 
