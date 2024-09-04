@@ -5,22 +5,25 @@ class Entity {
   height;
   speed;
   color;
+  img;
 
-  constructor(x, y, speed, width, height, color) {
+  constructor(x, y, speed, width, height, color, img) {
     this.x = x;
     this.y = y;
     this.speed = speed;
     this.width = width;
     this.height = height;
     this.color = color;
+    this.img = img;
   }
 
   draw(ctx) {
     ctx.fillStyle = this.color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-    ctx.fillStyle = this.color;
-    ctx.strokeStyle = "black";
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    if (this.img) {
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    } else {
+      ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
   }
 
   collides(target) {
@@ -39,14 +42,20 @@ const ctx = my_canvas.getContext('2d');
 let img = new Image()
 img.src = "miesposo.jpg"
 
-const player = new Entity(0, 0, 2, 20, 20, "blue")
+const chango = new Audio('chango.mp3');
+
+img.onload = function() {
+  ctx.drawImage(img, 100, 100);
+}
+
+const player = new Entity(0, 0, 2, 20, 20, "blue", img)
 const walls = []
 
-walls.push(new Entity(150, 0, 5, 200, 30, "red"))
-walls.push(new Entity(150, 300, 5, 200, 30, "red"))
+walls.push(new Entity(150, 0, 5, 200, 30, "red", null))
+walls.push(new Entity(150, 300, 5, 200, 30, "red", null))
 
 const foo = new Entity(150, 150, 5, 200, 200, "red")
-const puffle = new Entity(150, 350, 5, 20, 20, "pink")
+const puffle = new Entity(150, 350, 5, 20, 20, "pink", null)
 let score = 0;
 let pause = false;
 
@@ -139,6 +148,8 @@ function update() {
   });
 
   if (player.collides(puffle)) {
+    chango.pause()
+    chango.play();
     puffle.x = Math.random() * width - puffle.width
     puffle.y = Math.random() * height - puffle.height
     score += 10;
@@ -147,18 +158,15 @@ function update() {
 }
 
 function paint() {
-
-  img.onload = function() {
-    ctx.drawImage(img, 10, 10);
-  }
-
   if (!pause) {
     update();
   }
   ctx.fillStyle = 'black';
   ctx.fillRect(0, 0, width, height);
+
   puffle.draw(ctx)
   player.draw(ctx);
+
   walls.forEach(wall => {
     wall.draw(ctx)
   });
@@ -173,11 +181,6 @@ function paint() {
     ctx.font = "italic 50px serif";
     ctx.fillText(`P A U S E`, width / 2 - 200, height / 2);
   }
-
-  img.onload = function() {
-    ctx.drawImage(img, 100, 100);
-  }
-
   requestAnimationFrame(paint);
 }
 
