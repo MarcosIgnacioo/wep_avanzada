@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas {
+      background-color: gray;
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="my_canvas" width="500" height="500"></canvas>
+
+  <script type="text/javascript">
+
+    const my_canvas = document.getElementById("my_canvas")
+    const ctx = my_canvas.getContext('2d')
+
+    let direction = "";
+    let score = 0;
+    let paredes = [];
+    let pause;
+
+    class Rectangulo {
+      constructor(x, y, w, h, c, s) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.c = c;
+        this.s = s;
+      }
+
+      tocando(otro) {
+
+        if (this.x < otro.x + otro.w &&
+          this.x + this.w > otro.x &&
+          this.y < otro.y + otro.h &&
+          this.y + this.h > otro.y) {
+
+          return true;
+        }
+
+        return false;
+      }
+
+      colisionPared(otro) {
+
+        if (this.x < otro.x + otro.w &&
+          this.x + this.w > otro.x &&
+          this.y < otro.y + otro.h &&
+          this.y + this.h > otro.y) {
+
+          switch (direction) {
+            case "left":
+              player.x += 5
+              break;
+
+            case "up":
+              player.y += 5
+              break;
+
+            case "right":
+              player.x -= 5
+              break;
+
+            case "down":
+              player.y -= 5
+              break;
+          }
+        }
+        return true;
+
+      }
+
+
+    }
+
+    var player = new Rectangulo(250, 250, 40, 40, getRandomColor(), 5);
+
+    var food = new Rectangulo(Math.floor(Math.random() * 480), Math.floor(Math.random() * 480), 20, 20, getRandomColor());
+
+    paredes.push(new Rectangulo(80, 350, 320, 40, getRandomColor()));
+    paredes.push(new Rectangulo(80, 100, 320, 40, getRandomColor()));
+
+    document.onkeydown = function (e) {
+
+      switch (e.keyCode) {
+        case 37: //IZQUIERDA
+          direction = "left";
+          player.x -= player.s;
+          break;
+        case 38://ARRIBA
+          direction = "up";
+          player.y -= player.s;
+          break;
+        case 39://DERECHA
+          direction = "right";
+          player.x += player.s;
+          break;
+        case 40://ABAJO
+          direction = "down";
+          player.y += player.s;
+          break;
+        case 32://SPACE
+          pause = !pause;
+
+          break;
+      }
+
+    }
+
+    function pintar() {
+      update();
+      ctx.fillStyle = "gray";
+      ctx.fillRect(0, 0, 500, 500);
+
+
+      ctx.fillStyle = player.c;
+      ctx.fillRect(player.x, player.y, player.h, player.w);
+
+      ctx.fillStyle = food.c;
+      ctx.fillRect(food.x, food.y, food.h, food.w);
+
+      paredes.forEach(function (pared, indice, array) {
+        ctx.fillStyle = pared.c;
+        player.colisionPared(pared)
+        ctx.fillRect(pared.x, pared.y, pared.w, pared.h);
+      });
+
+
+
+      ctx.font = "20px Arial";
+      ctx.strokeText("score: " + score, 20, 20);
+
+
+      if (player.tocando(food) == true) {
+        console.log("tocando");
+        score++;
+        //player.s++;
+        food.x = Math.floor(Math.random() * 480);
+        food.y = Math.floor(Math.random() * 480);
+      } else {
+        console.log("destocando");
+      }
+
+
+      requestAnimationFrame(pintar);
+
+    }
+    requestAnimationFrame(pintar);
+
+
+    function update() {
+
+      if (!pause) {
+
+        switch (direction) {
+          case "left":
+            player.x -= player.s;
+            if (player.x + 50 <= 0) {
+              player.x = 520
+            }
+            break;
+          case "up":
+            player.y -= player.s;
+            if (player.y + 50 <= 0) {
+              player.y = 520
+            }
+            break;
+          case "right":
+            player.x += player.s;
+            if (player.x + 50 >= 520) {
+              player.x = -20
+            }
+            break;
+          case "down":
+            player.y += player.s;
+            if (player.y - 50 >= 520) {
+              player.y = -20
+            }
+            break;
+        }
+
+      }
+    }
+
+
+
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+  </script>
+</body>
+
+</html>
+</html>
