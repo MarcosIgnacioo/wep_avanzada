@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import './style.css'
-import App from './App.vue'
+// import App from './App.vue'
+import FormArray from './FormArray.vue'
 
-createApp(App).mount('#app')
+createApp(FormArray).mount('#app')
