@@ -21,11 +21,17 @@ export default {
     login() {
       fetch("users.json").then(r => {
         r.json().then(data => {
+          let validSession = false;
           (data.users.forEach(u => {
             if (u.name == this.name && u.password == this.password) {
-              alert("iniciaste sesion amiga que padre")
+              validSession = true;
             }
           }))
+          if (validSession) {
+            alert("iniciaste sesion amiga que padre")
+          } else {
+            alert("credenciales incorrectas amiga no manches")
+          }
         })
       })
     }
