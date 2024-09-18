@@ -155,7 +155,7 @@ export default {
     </table>
 
     <button v-if="!show" @click="showFormAddUser">
-      {{ text }}
+      agregar usuario
     </button>
     <form v-else style="display: flex; flex-direction: column" @submit.prevent="callBack">
       <h2>{{ text }}</h2>
