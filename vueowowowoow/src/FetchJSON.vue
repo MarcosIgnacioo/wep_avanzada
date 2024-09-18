@@ -45,12 +45,33 @@ export default {
     },
 
     showFormEditUser(index) {
+      this.text = "editar usuario"
+      this.callBack = this.updateUser
+      this.show = true;
+      const user = this.users[index]
+      this.newName = user.name
+      this.newPassword = user.password
+      this.newBirthday = user.birthday
+      this.newAge = user.age
+      this.newAvena = user.avena
+      this.userEditingId = index;
     },
 
     deleteUser(index) {
+      this.users.splice(index, 1)
+      localStorage.setItem("users", JSON.stringify(this.users))
     },
 
     updateUser() {
+      const updatedUser = {
+        "name": this.newName,
+        "password": this.newPassword,
+        "birthday": this.newBirthday,
+        "age": this.newAge,
+        "avena": this.newAvena
+      }
+      this.users[this.userEditingId] = updatedUser;
+      localStorage.setItem("users", JSON.stringify(this.users))
     },
 
     logOut() {
