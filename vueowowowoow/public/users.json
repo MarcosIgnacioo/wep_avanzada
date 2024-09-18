@@ -2,7 +2,24 @@
   "users":[
     {
       "name":"owo",
-      "password":"uwu"
+      "password":"uwu",
+      "birthday":"sabado",
+      "age":21,
+      "avena":true
+    },
+{
+      "name":"popo",
+      "password":"puip",
+      "birthday":"domingo",
+      "age":28,
+      "avena":true
+    },
+{
+      "name":"cac",
+      "password":"hl",
+      "birthday":"lunes",
+      "age":26,
+      "avena":true
     }
   ]
 }
